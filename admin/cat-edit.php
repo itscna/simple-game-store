@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['auth'])){
+    header("location:index.php");
+    exit();
+  }
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -10,6 +17,12 @@
   <body>
       <div class="container-fluid">
         <h2>Editing</h2>
+        <nav class="sideNav">
+          <a href="game-new.php" id="home">Home</a>
+          <a href="cat-show.php" id="category">Category</a>
+          <a href="game-list.php" id="item">Items</a>
+          <a href="logout.php" id="logout" onclick="return confirm('Are you sure to logout now!')">Logout</a>
+        </nav>
         <?php include "../config/conf.php";
               $id=$_GET['id'];
               $sql="SELECT * FROM category WHERE id=$id";

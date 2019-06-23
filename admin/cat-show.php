@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['auth'])){
+    header("location:index.php");
+    exit();
+  }
+ ?>
 <?php include "../config/conf.php"; ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -10,6 +17,12 @@
   </head>
   <body>
     <div class="container-fluid">
+      <nav class="sideNav">
+        <a href="game-new.php" id="home">Home</a>
+        <a href="cat-show.php" id="category">Category</a>
+        <a href="game-list.php" id="item">Items</a>
+        <a href="logout.php" id="logout" onclick="return confirm('Are you sure to logout now!')">Logout</a>
+      </nav>
          <section>
            <h2>Category List</h2>
            <?php

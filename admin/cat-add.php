@@ -1,4 +1,10 @@
 <?php
+  session_start();
+  if(!isset($_SESSION['auth'])){
+    heaer("location:index.php");
+    exit();
+  }
+
 include "../config/conf.php";
 
 $cat_name=$_POST['cat_name'];
